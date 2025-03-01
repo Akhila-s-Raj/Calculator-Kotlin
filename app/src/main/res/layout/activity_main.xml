@@ -5,50 +5,45 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <EditText
-        android:id="@+id/num1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="Enter first number"/>
-
-    <EditText
-        android:id="@+id/num2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="Enter second number"/>
-
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result: "
-        android:textSize="18sp"
-        android:padding="10dp"/>
+        android:text="0"
+        android:textSize="24sp"
+        android:gravity="end"
+        android:padding="10dp"
+        android:background="@android:color/darker_gray"
+        android:minHeight="60dp"/>
 
-    <Button
-        android:id="@+id/btnAdd"
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add"/>
+        android:columnCount="4"
+        android:rowCount="5"
+        android:padding="10dp">
 
-    <Button
-        android:id="@+id/btnSubtract"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Subtract"/>
+        <!-- Number Buttons -->
+        <Button android:id="@+id/btn7" android:text="7"/>
+        <Button android:id="@+id/btn8" android:text="8"/>
+        <Button android:id="@+id/btn9" android:text="9"/>
+        <Button android:id="@+id/btnDivide" android:text="÷"/>
 
-    <Button
-        android:id="@+id/btnMultiply"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Multiply"/>
+        <Button android:id="@+id/btn4" android:text="4"/>
+        <Button android:id="@+id/btn5" android:text="5"/>
+        <Button android:id="@+id/btn6" android:text="6"/>
+        <Button android:id="@+id/btnMultiply" android:text="×"/>
 
-    <Button
-        android:id="@+id/btnDivide"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Divide"/>
+        <Button android:id="@+id/btn1" android:text="1"/>
+        <Button android:id="@+id/btn2" android:text="2"/>
+        <Button android:id="@+id/btn3" android:text="3"/>
+        <Button android:id="@+id/btnSubtract" android:text="-"/>
+
+        <Button android:id="@+id/btnClear" android:text="C"/>
+        <Button android:id="@+id/btn0" android:text="0"/>
+        <Button android:id="@+id/btnEquals" android:text="="/>
+        <Button android:id="@+id/btnAdd" android:text="+"/>
+
+    </GridLayout>
 
 </LinearLayout>
