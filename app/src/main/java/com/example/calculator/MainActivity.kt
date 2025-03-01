@@ -1,43 +1,68 @@
 package com.example.calculator
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.calculator.ui.theme.CalculatorTheme
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            CalculatorTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+        setContentView(R.layout.activity_main)
+
+        val num1 = findViewById<EditText>(R.id.num1)
+        val num2 = findViewById<EditText>(R.id.num2)
+        val result = findViewById<TextView>(R.id.result)
+
+        val btnAdd = findViewById<Button>(R.id.btnAdd)
+        val btnSubtract = findViewById<Button>(R.id.btnSubtract)
+        val btnMultiply = findViewById<Button>(R.id.btnMultiply)
+        val btnDivide = findViewById<Button>(R.id.btnDivide)
+
+        btnAdd.setOnClickListener {
+            val first = num1.text.toString().toDoubleOrNull()
+            val second = num2.text.toString().toDoubleOrNull()
+            if (first != null && second != null) {
+                result.text = "Result: ${first + second}"
+            } else {
+                result.text = "Invalid Input"
+            }
+        }
+
+        btnSubtract.setOnClickListener {
+            val first = num1.text.toString().toDoubleOrNull()
+            val second = num2.text.toString().toDoubleOrNull()
+            if (first != null && second != null) {
+                result.text = "Result: ${first - second}"
+            } else {
+                result.text = "Invalid Input"
+            }
+        }
+
+        btnMultiply.setOnClickListener {
+            val first = num1.text.toString().toDoubleOrNull()
+            val second = num2.text.toString().toDoubleOrNull()
+            if (first != null && second != null) {
+                result.text = "Result: ${first * second}"
+            } else {
+                result.text = "Invalid Input"
+            }
+        }
+
+        btnDivide.setOnClickListener {
+            val first = num1.text.toString().toDoubleOrNull()
+            val second = num2.text.toString().toDoubleOrNull()
+            if (first != null && second != null) {
+                if (second != 0.0) {
+                    result.text = "Result: ${first / second}"
+                } else {
+                    result.text = "Cannot divide by zero"
                 }
+            } else {
+                result.text = "Invalid Input"
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-            text = "Hello $name!",
-            modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CalculatorTheme {
-        Greeting("Android")
-    }
-}
